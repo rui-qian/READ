@@ -66,10 +66,9 @@ Currently, we release three models are specifically trained for Reasoning segmen
 | READ-LLaVA-v1.5-7B-for-ReasonSeg-testset **(ours)**  | [rui-qian/READ-ReasonSeg-tesset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) | 
 
 **Notes**
-- All performance numbers above are evaluated using the validation split.
 - Instead of training from scratch, we initialize the parameters via the released model of [SESAME](https://huggingface.co/tsunghanwu/SESAME) for the sake of acceleration.
 - The SESAME- model is exclusively trained with RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
-- The SESAME model is trained with multiple datasets: LLaVA VQA, RefCOCO*, R-RefCOCO*, and the proposed FP-RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame)
+- The SESAME model is trained with multiple datasets: LLaVA VQA, RefCOCO*, R-RefCOCO*, and the proposed FP-RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
 ## Experimental results 
 ## Results on ReasonSeg Dataset
 <p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset.png" width="70%"> </p>
@@ -165,9 +164,9 @@ As mentioned in [SESAME](https://github.com/see-say-segment/sesame), inference i
 
 ## Inference (Demo)
 
-To chat with [READ-LLaVA-v1.5-7B](READ-LLaVA-v1.5-7B-for-fprefcoco) 
+To chat with [READ-LLaVA-v1.5-7B](READ-LLaVA-v1.5-7B-for-fprefcoco),
 ```
-export CUDA_VISIBLE_DEVICES=0,1,2,3
+export CUDA_VISIBLE_DEVICES=0
 python demo.py \
     --pretrained_model_path="../READ-LLaVA-v1.5-7B-for-fprefcoco" \
     --vision_tower="../dataset/clip-vit-large-patch14-336" \
