@@ -53,9 +53,7 @@ conda activate read
 
 ## Model and Dataset Preparation
 
-Links to [FP-RefCOCO* Datasets](https://drive.google.com/file/d/1mA3kcY3QiAZz1Zr89MCKYd7e3LBIwUzl/view?usp=sharing), and [Huggingface Model Collections](https://huggingface.co/collections/tsunghanwu/sesame-666c9b43efff2acaafc61882) are available. Visit [SESAME dataset page](./dataset/README.md) for more details.
-
-Currently, we release three models are specifically trained for Reasoning segmentation tasks, (FP-)referring segmentation tasks. Below are key notes and the cIoU score of these models. 
+Currently, we release three models are specifically trained for Reasoning segmentation tasks, (FP-)referring segmentation tasks. Below are key notes of these models. Links to [FP-RefCOCO* Datasets](https://drive.google.com/file/d/1mA3kcY3QiAZz1Zr89MCKYd7e3LBIwUzl/view?usp=sharing) are available. Visit [SESAME dataset page](./dataset/README.md) for more details.
 
 | Model Name | HG-ckpt URL | 
 |----------------------------|----------------|
