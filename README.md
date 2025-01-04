@@ -57,13 +57,13 @@ Links to [FP-RefCOCO* Datasets](https://drive.google.com/file/d/1mA3kcY3QiAZz1Zr
 
 Currently, we release three models are specifically trained for Reasoning segmentation tasks, (FP-)referring segmentation tasks. Below are key notes and the cIoU score of these models. 
 
-| Model Name | HG-ckpt URL | FP-RefCOCO | FP-RefCOCO+  | FP-RefCOCOg | RefCOCO | RefCOCO+ | RefCOCOg | 
-|----------------------------|----------------|----|----|----| ----|----|----|
-| SESAME-    LLaVA-v1.5-7B  | [tsunghanwu/SESAME_minus](https://huggingface.co/tsunghanwu/SESAME_minus) | 43.78 | 39.50 | 39.35 | 76.00 | 67.24 | 68.48 | 
-| SESAME    LLaVA-v1.5-7B  | [tsunghanwu/SESAME](https://huggingface.co/tsunghanwu/SESAME) |   59.80 |  53.32 | 54.98 | 74.94 | 66.54 | 67.95 |
-| READ-LLaVA-v1.5-7B-for-fprefcoco **(ours)**  | [tsunghanwu/READ-fprefcoco](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) |   61.50 |  54.54 | 56.12 | 78.1 | 68.4 | 70.1 |
-| READ-LLaVA-v1.5-7B-for-ReasonSeg-valset **(ours)**  | [rui-qian/READ-ReasonSeg-valset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) | - | - | - | - | - | - | 
-| READ-LLaVA-v1.5-7B-for-ReasonSeg-testset **(ours)**  | [rui-qian/READ-ReasonSeg-tesset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) | - | - | - | - | - | - |
+| Model Name | HG-ckpt URL | 
+|----------------------------|----------------|
+| SESAME-    LLaVA-v1.5-7B  | [tsunghanwu/SESAME_minus](https://huggingface.co/tsunghanwu/SESAME_minus) |  
+| SESAME    LLaVA-v1.5-7B  | [tsunghanwu/SESAME](https://huggingface.co/tsunghanwu/SESAME) |   
+| READ-LLaVA-v1.5-7B-for-fprefcoco **(ours)**  | [rui-qian/READ-fprefcoco](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
+| READ-LLaVA-v1.5-7B-for-ReasonSeg-valset **(ours)**  | [rui-qian/READ-ReasonSeg-valset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) | 
+| READ-LLaVA-v1.5-7B-for-ReasonSeg-testset **(ours)**  | [rui-qian/READ-ReasonSeg-tesset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) | 
 
 **Notes**
 - All performance numbers above are evaluated using the validation split.
@@ -161,7 +161,8 @@ CUDA_VISIBLE_DEVICES="${CUDA_DEVICE}" python test_read.py \
     --vis_save_path="./inference_results/${DATASET}_inference_cvpr"
 ```
 As mentioned in [SESAME](https://github.com/see-say-segment/sesame), inference is highly time-consuming. Using a single A100 80G GPU, it takes approximately 8-9 hours to perform inference on a RefCOCO(+/g) series dataset.
- 
+
+
 ## Inference (Demo)
 
 To chat with [READ-LLaVA-v1.5-7B](READ-LLaVA-v1.5-7B-for-fprefcoco) 
@@ -171,12 +172,6 @@ python demo.py \
     --pretrained_model_path="../READ-LLaVA-v1.5-7B-for-fprefcoco" \
     --vision_tower="../dataset/clip-vit-large-patch14-336" \
     --model_max_length=2048
-```
-
-Run the following command to enjoy the interaction with our SESAME model:
-
-```
-CUDA_VISIBLE_DEVICES=0 python demo.py
 ```
 
 ## Acknowledgements
