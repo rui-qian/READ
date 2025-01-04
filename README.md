@@ -161,11 +161,6 @@ CUDA_VISIBLE_DEVICES="${CUDA_DEVICE}" python test_read.py \
     --vis_save_path="./inference_results/${DATASET}_inference_cvpr"
 ```
 As mentioned in [SESAME](https://github.com/see-say-segment/sesame), inference is highly time-consuming. Using a single A100 80G GPU, it takes approximately 8-9 hours to perform inference on a RefCOCO(+/g) series dataset.
-
-
-
-Note: the `v1` model is trained using both `train+val` sets, so please use the `v0` model to reproduce the validation results. (To use the `v0` models, please first checkout to the legacy version repo with `git checkout 0e26916`.)
-
  
 ## Inference (Demo)
 
@@ -177,10 +172,6 @@ python demo.py \
     --vision_tower="../dataset/clip-vit-large-patch14-336" \
     --model_max_length=2048
 ```
-
-
-
-
 
 Run the following command to enjoy the interaction with our SESAME model:
 
