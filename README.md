@@ -162,7 +162,7 @@ As mentioned in [SESAME](https://github.com/see-say-segment/sesame), inference i
 
 ## Inference (Demo)
 
-To chat with [READ-LLaVA-v1.5-7B](READ-LLaVA-v1.5-7B-for-fprefcoco),
+To chat with [READ-LLaVA-v1.5-7B](READ-LLaVA-v1.5-7B-for-fprefcoco), you can run ours scripts: **[./demo.sh](./demo.sh)**.
 ```
 export CUDA_VISIBLE_DEVICES=0
 python demo.py \
