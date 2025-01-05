@@ -28,7 +28,7 @@ catastrophic forgetting of previous skills after fine-tuning, we further assess 
 ### System Requirements
 
 - System Setup: Linux with one or more Nvidia A100 GPUs (Ampere GPUs required due to flash-attn usage during training). Minor adjustments may be necessary for Mac or Windows.
-- Dependency Installation: Create a Python environment named "sesame" and install necessary dependencies:
+- Dependency Installation: Create a Python environment named "read" and install necessary dependencies:
 
 ```bash=
 conda create -n read python=3.9
@@ -68,13 +68,13 @@ Currently, we release three models are specifically trained for Reasoning segmen
 - The SESAME- model is exclusively trained with RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
 - The SESAME model is trained with multiple datasets: LLaVA VQA, RefCOCO*, R-RefCOCO*, and the proposed FP-RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
 ## Experimental results 
-## Results on ReasonSeg Dataset
+### Results on ReasonSeg Dataset
 <p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset.png" width="70%"> </p>
 
-## Results on ReasonSeg Dataset
+### Results on ReasonSeg Dataset
 <p align="left"> <img src="assets/Results_on_RefCOC_(+g)_Dataset.png" width="70%"> </p>
 
-## Results on FP-RefCOCO(+/g) Dataset
+### Results on FP-RefCOCO(+/g) Dataset
 <p align="left"> <img src="assets/Results_on_FP-RefCOCO(+g) Dataset.png" width="70%"> </p>
 
 See also: You can download the predicted results on FP-RefCOCO(+/g) [here](https://huggingface.co/datasets/rui-qian/FP-refcoco)!
@@ -93,7 +93,7 @@ To train READ-7B or 13B from scratch, you need to download
 huggingface-cli download  --resume-download liuhaotian/llava-v1.5-7b --local-dir llava-v1.5-7b
 huggingface-cli download  --resume-download liuhaotian/llava-llama-2-13b-chat-lightning-preview --local-dir llava-llama-2-13b-chat-lightning-preview
 ```
-or fine-tune SESAME models directly by simply running ours scripts: **[./train_read.sh](./train_read.sh)**
+or fine-tune SESAME models directly by simply running ours scripts: **[./train_read.sh](./train_read.sh)**.
 ```
 vim SESAME-LLaVA-v1.5-7B/config.json
   "architectures": [
@@ -121,7 +121,7 @@ When training is finished, to get the full model weight:
 ```
 cd ./runs/lisa-7b/ckpt_model && python zero_to_fp32.py . ../pytorch_model.bin 
 ```
-or using script **[merge_lora_weight.sh](./merge_lora_weight.sh)** 
+or using script **[merge_lora_weight.sh](./merge_lora_weight.sh)**. 
 
 ### Validation on ReasonSeg and refcoco(+/g) series
 
