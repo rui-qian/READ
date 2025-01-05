@@ -142,7 +142,7 @@ deepspeed --master_port=24996 --include "localhost:0" train_read.py \
 
 ### Validation on FP-refcoco(+/g) series
 
-Unlike the ReasonSeg and RefCOCO(+/g) datasets, where the dataset contains only positive samples and evaluation focuses solely on segmentation performance, the `<seg>` token is directly added to the question template during validation. However, the FP-RefCOCO dataset includes False Premises (negative samples), so the `<seg>` token cannot be directly appended to the question template. Instead, the model must predict based on the actual query. You 
+Unlike the ReasonSeg and RefCOCO(+/g) datasets, where the dataset contains only positive samples and evaluation focuses solely on segmentation performance, the `<seg>` token is directly added to the question template during validation. However, the FP-RefCOCO dataset includes False Premises (negative samples), so the `<seg>` token cannot be directly appended to the question template. Instead, the model should make predictions directly based on the given query. You 
 can simply run ours scripts: **[./test_read.sh](./test_read.sh)**. 
 ```
 CUDA_VISIBLE_DEVICES="${CUDA_DEVICE}" python test_read.py \
