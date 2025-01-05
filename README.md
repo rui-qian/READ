@@ -171,6 +171,16 @@ python demo.py \
     --model_max_length=2048
 ```
 
+## Appendix
+To qualitatively analyze the \<SEG\> token, we visualize the similarity maps at different stages of the forward pass in SESAME. 
+Here are the relevant experimental results attached [Link](https://huggingface.co/datasets/rui-qian/misc/blob/main/Analysis.tar.gz).
+```
+tar -xvf Analysis.tar.gz
+cd Analysis
+./run.sh    # We provide a Django-based dashboard for data visualization. User: llm  Password: 1314
+```
+<p align="center"> <img src="assets/AnalysisDjango.png" width="100%"> </p>
+
 ## Acknowledgements
 
 We are grateful for the foundational code provided by [SESAME](https://github.com/see-say-segment/sesame), [CLIP_Surgery](https://github.com/xmed-lab/CLIP_Surgery),[LISA](https://github.com/dvlab-research/LISA), [LLaVA](https://github.com/haotian-liu/LLaVA), and [SAM](https://github.com/facebookresearch/segment-anything). Utilizing their resources implies agreement to their respective licenses. Our project benefits greatly from these contributions, and we acknowledge their significant impact on our work.
