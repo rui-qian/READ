@@ -71,7 +71,7 @@ Currently, we release three models are specifically trained for Reasoning segmen
 ### Results on ReasonSeg Dataset
 <p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset.png" width="70%"> </p>
 
-### Results on ReasonSeg Dataset
+### Results on RefCOCO Dataset
 <p align="left"> <img src="assets/Results_on_RefCOC_(+g)_Dataset.png" width="70%"> </p>
 
 ### Results on FP-RefCOCO(+/g) Dataset
