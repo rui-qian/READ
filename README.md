@@ -119,7 +119,7 @@ Since the ReasonSeg dataset is quite small, it is recommended to use a smaller l
 ### Merge LoRA Weight
 When training is finished, to get the full model weight:
 ```
-cd ./runs/lisa-7b/ckpt_model && python zero_to_fp32.py . ../pytorch_model.bin 
+cd ./runs/READ-LLaVA-v1.5-7B/ckpt_model && python zero_to_fp32.py . ../pytorch_model.bin 
 ```
 or using script **[merge_lora_weight.sh](./merge_lora_weight.sh)**. 
 
