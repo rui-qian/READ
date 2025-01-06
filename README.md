@@ -157,7 +157,7 @@ CUDA_VISIBLE_DEVICES="${CUDA_DEVICE}" python test_read.py \
     --val_dataset="${DATASET}" \
     --vis_save_path="./inference_results/${DATASET}_inference_cvpr"
 ```
-As mentioned in [SESAME](https://github.com/see-say-segment/sesame), inference is highly time-consuming. Using a single A100 80G GPU, it takes approximately 8-9 hours to perform inference on a RefCOCO(+/g) series dataset.
+As mentioned in [SESAME](https://github.com/see-say-segment/sesame), inference is highly time-consuming. Using a single A100 80G GPU, it takes approximately 8-9 hours to perform inference on a FP-refcoco(+/g) series.
 
 
 ## Inference (Demo)
