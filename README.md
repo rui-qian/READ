@@ -37,7 +37,7 @@ pip3 install -r requirements.txt
 pip install flash-attn --no-build-isolation
 ```
 We primarily follow the installation steps of [SESAME](https://github.com/see-say-segment/sesame). As long as your program can run the SESAME model, it should be able to run our model as well.
-In addition, we also provide conda environment contents in a .zip file. Please follow the below steps to set up the environment, 
+In addition, we also provide conda environment contents in a .zip file for convenience. Please follow the below steps to set up the environment, 
 - Download `read_conda_env.zip` from the [huggingface link](https://huggingface.co/datasets/rui-qian/misc/blob/main/read_conda_env.zip).
 - Extract the downloaded `zip` file: 
 ```bash
@@ -46,7 +46,7 @@ conda create -n read python=3.9
 unzip read_conda_env.zip #(unzip to obtain read env)
 cp -a ./read anaconda3/envs #replace
 ```
-- Activate the environment: 
+- Activate the environment, and adjust the relevant path as indicated by the error message:
 ```bash
 conda activate read
 ```
