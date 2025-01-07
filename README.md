@@ -43,7 +43,7 @@ In addition, we also provide conda environment contents in a .zip file for conve
 ```bash
 bash Anaconda3-2024.06-1-Linux-x86_64.sh
 conda create -n llm python=3.9
-unzip read_conda_env.zip #(unzip to obtain read env)
+unzip llm_conda_env.zip #(unzip to obtain llm env)
 cp -a ./read anaconda3/envs #replace
 ```
 - Activate the environment, and adjust the relevant path as indicated by the error message:
