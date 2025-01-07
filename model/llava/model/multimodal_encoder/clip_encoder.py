@@ -128,7 +128,7 @@ def visualize():
     similarity = compute_similarity_map(patch_embeddings[0:1, ...], text_features)
     similarity_map = get_similarity_map(similarity, cv2_img.shape[:2])
     vis = (similarity_map[0, ..., 0].detach().cpu().numpy() * 255).astype('uint8')
-    # vis = 255 - vis
+    vis = 255 - vis
     vis = cv2.applyColorMap(vis, cv2.COLORMAP_JET)
     vis = cv2_img * 0.3 + vis * 0.7
     vis = cv2.cvtColor(vis.astype('uint8'), cv2.COLOR_BGR2RGB)

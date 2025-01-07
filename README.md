@@ -28,7 +28,7 @@ catastrophic forgetting of previous skills after fine-tuning, we further assess 
 ### System Requirements
 
 - System Setup: Linux with one or more Nvidia A100 GPUs (Ampere GPUs required due to flash-attn usage during training). Minor adjustments may be necessary for Mac or Windows.
-- Dependency Installation: Create a Python environment named "read" and install necessary dependencies:
+- Dependency Installation: Create a Python environment named "llm" and install necessary dependencies:
 
 ```bash=
 conda create -n read python=3.9
@@ -38,17 +38,17 @@ pip install flash-attn --no-build-isolation
 ```
 We primarily follow the installation steps of [SESAME](https://github.com/see-say-segment/sesame). As long as your program can run the SESAME model, it should be able to run our model as well.
 In addition, we also provide conda environment contents in a .zip file for convenience. Please follow the below steps to set up the environment, 
-- Download `read_conda_env.zip` from the [huggingface link](https://huggingface.co/datasets/rui-qian/misc/blob/main/read_conda_env.zip).
+- Download `llm_conda_env.zip` from the [huggingface link](https://huggingface.co/datasets/rui-qian/misc/blob/main/llm_conda_env.zip).
 - Extract the downloaded `zip` file: 
 ```bash
 bash Anaconda3-2024.06-1-Linux-x86_64.sh
-conda create -n read python=3.9
+conda create -n llm python=3.9
 unzip read_conda_env.zip #(unzip to obtain read env)
 cp -a ./read anaconda3/envs #replace
 ```
 - Activate the environment, and adjust the relevant path as indicated by the error message:
 ```bash
-conda activate read
+conda activate llm
 ```
 
 ## Model and Dataset Preparation
