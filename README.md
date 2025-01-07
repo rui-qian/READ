@@ -38,7 +38,7 @@ pip install flash-attn --no-build-isolation
 ```
 We primarily follow the installation steps of [SESAME](https://github.com/see-say-segment/sesame). As long as your program can run the SESAME model, it should be able to run our model as well.
 In addition, we also provide conda environment contents in a .zip file for convenience. Please follow the below steps to set up the environment, 
-- Download `ml_conda_env.zip` from the [huggingface link](https://huggingface.co/datasets/rui-qian/misc/blob/main/llm_conda_env.zip).
+- Download `ml_conda_env.zip` from the [huggingface link](https://huggingface.co/datasets/rui-qian/misc/blob/main/ml_conda_env.zip).
 - Extract the downloaded `zip` file: 
 ```bash
 bash Anaconda3-2024.06-1-Linux-x86_64.sh
