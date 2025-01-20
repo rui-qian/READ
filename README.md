@@ -19,7 +19,9 @@ catastrophic forgetting of previous skills after fine-tuning, we further assess 
 <p align="center"> <img src="assets/analysis.png" width="100%"> </p>
 
 ## News
-- [x] [2025.1.4] We will release [READ-LLaVA-v1.5-13B](https://huggingface.co/rui-qian) for ReasonSeg dataset as soon as possible, stay tuned!
+- [x] [2025.1.21] The current code is somewhat messy, but we are confident that the results from the paper can be reproduced if all parameters are correctly set. If time permits, we will refactor the current code. stay tuned!
+- [x] [2025.1.21] <font color="red">**We released [READ-LLaVA-v1.5-13B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset) for ReasonSeg dataset!**</font> Also, since our base code is mainly adapted from SESAME. If you're working within the SESAME environment, you should be able to run it smoothly by simply downloading 
+[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13b.zip) there.
 - [x] [2025.1.4] Inference code and the [READ-LLaVA-v1.5-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) model are released. Welcome to check them out!
 - [x] [2024.12.24] [Paper](https://arxiv.org/abs/2412.17741) is released and GitHub repo is created.
 
@@ -59,17 +61,49 @@ Currently, we release three models are specifically trained for Reasoning segmen
 |----------------------------|----------------|
 | SESAME-    LLaVA-v1.5-7B  | [tsunghanwu/SESAME_minus](https://huggingface.co/tsunghanwu/SESAME_minus) |  
 | SESAME    LLaVA-v1.5-7B  | [tsunghanwu/SESAME](https://huggingface.co/tsunghanwu/SESAME) |   
-| READ-LLaVA-v1.5-7B-for-fprefcoco **(ours)**  | [rui-qian/READ-fprefcoco](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
-| READ-LLaVA-v1.5-7B-for-ReasonSeg-valset **(ours)**  | [rui-qian/READ-ReasonSeg-valset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) | 
-| READ-LLaVA-v1.5-7B-for-ReasonSeg-testset **(ours)**  | [rui-qian/READ-ReasonSeg-tesset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) | 
+| READ-LLaVA-v1.5-7B-for-fprefcoco **(ours)**  | [rui-qian/READ-7B-fprefcoco](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
+| READ-LLaVA-v1.5-7B-for-ReasonSeg-valset **(ours)**  | [rui-qian/READ-7B-ReasonSeg-valset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) | 
+| READ-LLaVA-v1.5-7B-for-ReasonSeg-testset **(ours)**  | [rui-qian/READ-7B-ReasonSeg-tesset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) | 
+| **READ-LLaVA-v1.5-13B-for-ReasonSeg-testset (ours)**  | [rui-qian/READ-13B-ReasonSeg-tesset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset) | 
 
 **Notes**
-- Instead of training from scratch, we initialize the parameters via the released model of [SESAME](https://huggingface.co/tsunghanwu/SESAME) for the sake of acceleration.
+- As for Reasoning segmentation, we trained two models: READ-7B and READ-13B. For **READ-7B**, we initialize the parameters using the released SESAME model to accelerate training, with the training dataset allocated in a 10:1:1:1:1:10 ratio. We employ LoRA for efficient fine-tuning, using \( lora\_r = 8 \), and conduct end-to-end joint training. For **READ-13B**, we train it from scratch, using LLaVA 1.5-13B as the base model. Initially, we train it on the full dataset in a 10:10:2:3:1:1 ratio for about 8 epochs, and then fine-tune it with a ratio of 3:10:2:3:1:10, using a learning rate of 0.0001 and \( lora\_r = 64 \).
 - The SESAME- model is exclusively trained with RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
 - The SESAME model is trained with multiple datasets: LLaVA VQA, RefCOCO*, R-RefCOCO*, and the proposed FP-RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
 ## Experimental results 
 ### Results on ReasonSeg Dataset
+
+**Using the complex question templates from SESAME**
+
 <p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset.png" width="70%"> </p>
+
+**Using the simple, fixed templates from LISA**
+
+<p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset-7B.png" width="70%"> </p>
+<p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset-13B.png" width="70%"> </p>
+
+\* when training, for **READ-7B**, set ./train_read.py: lora_r=8, lr=0.0003, 
+model/READ.py: Line 837-839, num_points = 30, t_pos = 0.8, t_neg = 0.2; Line 764, down_sample=2. 
+For **READ-13B**, first, set ./train_read.py: lora_r=64, lr=0.0003, ./train_read.sh: SAMPLE_RATES_REASONSEG="10,10,2,3,1,1", model/READ.py: Line 837-839, num_points = 10, t_pos = 0.8, t_neg = 0.2; Line 764, down_sample=1. Next, 
+fine tune the model, set lr=0.0001, num_points = 30, SAMPLE_RATES_REASONSEG="3,10,2,3,1,10".
+
+\* The `conversation_records.pickle` file is no longer necessary. To enhance the diversity of the model's responses, we retained the complex question templates from SESAME. The `conversation_records.pickle` file was originally intended to preserve the question templates used during model saving. However, **we found that using the simple, fixed templates from LISA during prediction can significantly improve the model's performance.**
+```
+    DEFAULT_IMAGE_TOKEN = "<image>"
+    SHORT_QUESTION_TEMPLATE = [
+        DEFAULT_IMAGE_TOKEN
+        + "\n"
+        + "What is {class_name} in this image? Please output segmentation mask."
+    ]
+    LONG_QUESTION_TEMPLATE = [
+        DEFAULT_IMAGE_TOKEN
+        + "\n"
+        + "{sent} Please output segmentation mask.",
+    ]
+    LONG_ANSWER_TEMPLATE = ["Sure, the segmentation result is [SEG]."]
+```
+
+\* Considering that the ReasonSeg validation set only contains 200 images, there may be high variance on the validation set (see [issues](https://github.com/dvlab-research/LISA/issues/82)). For the 13B model, we only report results on the test set (700 images). Since the test set is larger than the validation set, the results are relatively more stable, and thereby, we believe this is sufficient to demonstrate the model's effectiveness.
 
 ### Results on RefCOCO Dataset
 <p align="left"> <img src="assets/Results_on_RefCOC_(+g)_Dataset.png" width="70%"> </p>
@@ -91,7 +125,7 @@ Download SAM ViT-H pre-trained weights from the [link](https://dl.fbaipublicfile
 To train READ-7B or 13B from scratch, you need to download
 ```
 huggingface-cli download  --resume-download liuhaotian/llava-v1.5-7b --local-dir llava-v1.5-7b
-huggingface-cli download  --resume-download liuhaotian/llava-llama-2-13b-chat-lightning-preview --local-dir llava-llama-2-13b-chat-lightning-preview
+huggingface-cli download  --resume-download liuhaotian/llava-v1.5-13b --local-dir llava-v1.5-13b
 ```
 or fine-tune SESAME models directly by simply running ours scripts: **[./train_read.sh](./train_read.sh)**.
 ```
