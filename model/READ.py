@@ -758,8 +758,10 @@ class READForCausalLM(LlavaLlamaForCausalLM):
             stacked_labels = torch.empty(0, dtype=torch.long)
         return stacked_points, stacked_labels
     
+    # for test set
+    # def similarity_map_to_points(self, sm, shape, t=0.8, down_sample=1):
+    # for val set 
     def similarity_map_to_points(self, sm, shape, t=0.8, down_sample=2):
-
         def get_similarity_map(sm, shape):
             # min-max norm
             sm = (sm - sm.min(1, keepdim=True)[0]) / (sm.max(1, keepdim=True)[0] - sm.min(1, keepdim=True)[0])
@@ -830,15 +832,21 @@ class READForCausalLM(LlavaLlamaForCausalLM):
         scale_w = float(shape[1]) / w
         sm = sm.reshape(-1)
         #sm = (sm - sm.min()) / (sm.max() - sm.min())
-        
+       
+        # for val set 
         num_points = 30
-        t_pos = 0.8  
+        t_pos = 0.8 
         t_neg = 0.2 
-        # mean_val = sm.mean().item()
-        # std_val = sm.std().item()
-        # std_factor = 0
-        # t_pos = mean_val + std_val * std_factor
-        # t_neg = mean_val - std_val * std_factor
+        # # for test set
+        # num_points = 60
+        # t_pos = 0.6
+        # t_neg = 0.2
+
+        #mean_val = sm.mean().item()
+        #std_val = sm.std().item()
+        #std_factor = 1.28
+        #t_pos = mean_val + std_val * std_factor
+        #t_neg = mean_val - std_val * std_factor
 
         # (t >= 0.8)，label = 1
         pos_indices = (sm >= t_pos).nonzero(as_tuple=False).squeeze()
