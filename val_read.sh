@@ -21,6 +21,7 @@
 #       --val_split="test"
 
 # uncomment to eval for ReasonSeg test set with 13B model
+# umcoment model/READ.py Line 762 and Line 841-843
 deepspeed --master_port=24996 --include "localhost:0" train_read.py \
        --version="./READ-LLaVA-v1.5-13B-for-ReasonSeg-testset" \
        --dataset_dir='../dataset' \
