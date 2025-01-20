@@ -152,6 +152,19 @@ class TestReasoningDataset(ReasonSegDataset):
         self.use_val_mode = use_val_mode
         self.use_test_mode = use_test_mode
         self.eval_only = eval_only
+        
+        DEFAULT_IMAGE_TOKEN = "<image>"
+        SHORT_QUESTION_TEMPLATE = [
+            DEFAULT_IMAGE_TOKEN
+            + "\n"
+            + "What is {class_name} in this image? Please output segmentation mask."
+        ]
+        LONG_QUESTION_TEMPLATE = [
+            DEFAULT_IMAGE_TOKEN
+            + "\n"
+            + "{sent} Please output segmentation mask.",
+        ]
+        LONG_ANSWER_TEMPLATE = ["Sure, the segmentation result is [SEG]."]
 
         self.short_question_list = SHORT_QUESTION_TEMPLATE
         self.long_question_list = LONG_QUESTION_TEMPLATE
@@ -173,7 +186,7 @@ class TestReasoningDataset(ReasonSegDataset):
         #                   cv2.cvtColor(cv2.imread(i), cv2.COLOR_BGR2RGB))[3]]
         # for short query
         #images = [ i for i in images if not get_mask_from_json(i.replace(".jpg", ".json"), 
-         #                  cv2.cvtColor(cv2.imread(i), cv2.COLOR_BGR2RGB))[3]]
+        #                  cv2.cvtColor(cv2.imread(i), cv2.COLOR_BGR2RGB))[3]]
         jsons = [path.replace(".jpg", ".json") for path in images]
         self.reason_seg_data = (images, jsons)
 
@@ -263,9 +276,9 @@ class TestReasoningDataset(ReasonSegDataset):
                 conv.append_message(conv.roles[1], None)
             conversations.append(conv.get_prompt())
         
-        if self.eval_only: 
-            # only to restore template
-            conversations = self.conversation_records[image_path.replace('dataset', 'dataset_sesame')]
+        #if self.eval_only: 
+        #    # only to restore template
+        #    conversations = self.conversation_records[image_path.replace('dataset', 'dataset_sesame')]
 
         # Exists and segmentation masks
         conversation_record = {image_path:conversations}
