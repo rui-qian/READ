@@ -82,12 +82,12 @@ Currently, we release three models are specifically trained for Reasoning segmen
 <p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset-7B.png" width="70%"> </p>
 <p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset-13B.png" width="70%"> </p>
 
-\* when training, for **READ-7B**, set ./train_read.py: lora_r=8, lr=0.0003, 
+- when training, for **READ-7B**, set ./train_read.py: lora_r=8, lr=0.0003, 
 model/READ.py: Line 837-839, num_points = 30, t_pos = 0.8, t_neg = 0.2; Line 764, down_sample=2. 
 For **READ-13B**, first, set ./train_read.py: lora_r=64, lr=0.0003, ./train_read.sh: SAMPLE_RATES_REASONSEG="10,10,2,3,1,1", model/READ.py: Line 837-839, num_points = 10, t_pos = 0.8, t_neg = 0.2; Line 764, down_sample=1. Next, 
 fine tune the model, set lr=0.0001, num_points = 30, SAMPLE_RATES_REASONSEG="3,10,2,3,1,10".
 
-\* The `conversation_records.pickle` file is no longer necessary. To enhance the diversity of the model's responses, we retained the complex question templates from SESAME. The `conversation_records.pickle` file was originally intended to preserve the question templates used during model saving. However, **we found that using the simple, fixed templates from LISA during validation can significantly improve the model's performance.**
+- The `conversation_records.pickle` file is no longer necessary. To enhance the diversity of the model's responses, we retained the complex question templates from SESAME. The `conversation_records.pickle` file was originally intended to preserve the question templates used during model saving. However, **we found that using the simple, fixed templates from LISA during validation can significantly improve the model's performance.**
 ```
     DEFAULT_IMAGE_TOKEN = "<image>"
     SHORT_QUESTION_TEMPLATE = [
@@ -103,7 +103,7 @@ fine tune the model, set lr=0.0001, num_points = 30, SAMPLE_RATES_REASONSEG="3,1
     LONG_ANSWER_TEMPLATE = ["Sure, the segmentation result is [SEG]."]
 ```
 
-\* Considering that the ReasonSeg validation set only contains 200 images, there may be high variance on the validation set (see [issues](https://github.com/dvlab-research/LISA/issues/82)). For the READ-13B model, we only report results on the test set (779 images). Since the test set is larger than the validation set, the results are relatively more stable, and thereby, we believe this is sufficient to demonstrate the model's effectiveness.
+- Considering that the ReasonSeg validation set only contains 200 images, there may be high variance on the validation set (see [issues](https://github.com/dvlab-research/LISA/issues/82)). For the READ-13B model, we only report results on the test set (779 images). Since the test set is larger than the validation set, the results are relatively more stable, and thereby, we believe this is sufficient to demonstrate the model's effectiveness.
 
 ### Results on RefCOCO Dataset
 <p align="left"> <img src="assets/Results_on_RefCOC_(+g)_Dataset.png" width="70%"> </p>
