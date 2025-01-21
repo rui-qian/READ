@@ -55,7 +55,7 @@ SESAME
 │   │       └── VOCdevkit
 │   ├── clip-vit-large-patch14-336
 │   ├── llava-v1.5-7b
-│   ├── llava-llama-2-13b-chat-lightning-preview
+│   ├── llava-v1.5-13b
 │   ├── SESAME-LLaVA-v1.5-7B
 │   └── sam_vit_h_4b8939.pth
 ```
