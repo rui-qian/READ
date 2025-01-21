@@ -63,8 +63,8 @@ Currently, we release three models are specifically trained for Reasoning segmen
 | SESAME    LLaVA-v1.5-7B  | [tsunghanwu/SESAME](https://huggingface.co/tsunghanwu/SESAME) |   
 | READ-LLaVA-v1.5-7B-for-fprefcoco **(ours)**  | [rui-qian/READ-7B-fprefcoco](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
 | READ-LLaVA-v1.5-7B-for-ReasonSeg-valset **(ours)**  | [rui-qian/READ-7B-ReasonSeg-valset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) | 
-| READ-LLaVA-v1.5-7B-for-ReasonSeg-testset **(ours)**  | [rui-qian/READ-7B-ReasonSeg-tesset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) | 
-| **READ-LLaVA-v1.5-13B-for-ReasonSeg-testset (ours)**  | [rui-qian/READ-13B-ReasonSeg-tesset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset) | 
+| READ-LLaVA-v1.5-7B-for-ReasonSeg-testset **(ours)**  | [rui-qian/READ-7B-ReasonSeg-testset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) | 
+| **READ-LLaVA-v1.5-13B-for-ReasonSeg-testset (ours)**  | [rui-qian/READ-13B-ReasonSeg-testset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset) | 
 
 **Notes**
 - As for Reasoning segmentation, we trained two models: READ-7B and READ-13B. For **READ-7B**, we initialize the parameters using the released SESAME model to accelerate training, with the training dataset allocated in a 10:1:1:1:1:10 ratio. We employ LoRA for efficient fine-tuning, using \( lora\_r = 8 \), and conduct end-to-end joint training. For **READ-13B**, we train it from scratch, using LLaVA 1.5-13B as the base model. Initially, we train it on the full dataset in a 10:10:2:3:1:1 ratio for about 8 epochs, and then fine-tune it with a ratio of 3:10:2:3:1:10, using a learning rate of 0.0001 and \( lora\_r = 64 \).
