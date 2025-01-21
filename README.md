@@ -103,7 +103,7 @@ fine tune the model, set lr=0.0001, num_points = 30, SAMPLE_RATES_REASONSEG="3,1
     LONG_ANSWER_TEMPLATE = ["Sure, the segmentation result is [SEG]."]
 ```
 
-\* Considering that the ReasonSeg validation set only contains 200 images, there may be high variance on the validation set (see [issues](https://github.com/dvlab-research/LISA/issues/82)). For the READ-13B model, we only report results on the test set (700 images). Since the test set is larger than the validation set, the results are relatively more stable, and thereby, we believe this is sufficient to demonstrate the model's effectiveness.
+\* Considering that the ReasonSeg validation set only contains 200 images, there may be high variance on the validation set (see [issues](https://github.com/dvlab-research/LISA/issues/82)). For the READ-13B model, we only report results on the test set (779 images). Since the test set is larger than the validation set, the results are relatively more stable, and thereby, we believe this is sufficient to demonstrate the model's effectiveness.
 
 ### Results on RefCOCO Dataset
 <p align="left"> <img src="assets/Results_on_RefCOC_(+g)_Dataset.png" width="70%"> </p>
