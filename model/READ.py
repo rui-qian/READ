@@ -758,9 +758,9 @@ class READForCausalLM(LlavaLlamaForCausalLM):
             stacked_labels = torch.empty(0, dtype=torch.long)
         return stacked_points, stacked_labels
     
-    # uncomment for test set
+    # uncomment for READ-13B ReasonSeg test set
     # def similarity_map_to_points(self, sm, shape, t=0.8, down_sample=1):
-    # uncomment for val set 
+    # uncomment for READ-7B ReasonSeg val/test set  
     def similarity_map_to_points(self, sm, shape, t=0.8, down_sample=2):
         def get_similarity_map(sm, shape):
             # min-max norm
@@ -833,11 +833,11 @@ class READForCausalLM(LlavaLlamaForCausalLM):
         sm = sm.reshape(-1)
         #sm = (sm - sm.min()) / (sm.max() - sm.min())
        
-        # # uncomment for val set 
+        # # uncomment for READ-7B ReasonSeg val/test set 
         num_points = 30
         t_pos = 0.8 
         t_neg = 0.2 
-        # # uncomment for test set
+        # # uncomment for READ-13B ReasonSeg test set
         # num_points = 60
         # t_pos = 0.6
         # t_neg = 0.2
