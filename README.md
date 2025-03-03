@@ -64,8 +64,8 @@ Currently, we release three models are specifically trained for Reasoning segmen
 | SESAME    LLaVA-v1.5-7B  | [tsunghanwu/SESAME](https://huggingface.co/tsunghanwu/SESAME) |   
 | READ-LLaVAv1.5-7B-fprefcoco **(ours)**  | [READ-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
 | [1] READ-LLaVAv1.5-7B-ReasonSeg-valset **(ours)**  | [READ-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) \[val:[gIou:59.8, cIoU:67.6](assets/Results_on_ReasonSeg_Dataset-7B.png)\]| 
-| [2] READ-LLaVAv1.5-7B-ReasonSeg-valset-ft **(ours)**  | [READ-7B](https://huggingface.co/rui-qian/READ-LLaVAv1.5-7B-for-ReasonSeg-valset-ft/tree/main) \[val:[gIou:62.33, cIoU:70.68](https://huggingface.co/rui-qian/READ-LLaVAv1.5-7B-ReasonSeg-valset-ft/blob/main/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft.png)\] \[code:[READ-7B-val](https://huggingface.co/datasets/rui-qian/misc/blob/main/s2p-new-SESAME_val_15points.tar.gz)\]| 
-| [3] READ-LLaVAv1.5-7B-ReasonSeg-testset **(ours: ❌)**  | [READ-7B](https://huggingface.co/rui-qian/deprecated-READ-LLaVAv1.5-7B-for-ReasonSeg-testset) \[test:[gIou:56.8, cIoU:59.0](assets/Results_on_ReasonSeg_Dataset-7B.png)\]| 
+| [2] READ-LLaVAv1.5-7B-ReasonSeg-valset-ft **(ours)**  | [READ-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft/tree/main) \[val:[gIou:62.33, cIoU:70.68](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft/blob/main/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft.png)\] \[code:[READ-7B-val](https://huggingface.co/datasets/rui-qian/misc/blob/main/s2p-new-SESAME_val_15points.tar.gz)\]| 
+| [3] READ-LLaVAv1.5-7B-ReasonSeg-testset **(ours: ❌)**  | [READ-7B](https://huggingface.co/rui-qian/deprecated-READ-LLaVA-v1.5-7B-for-ReasonSeg-testset/tree/main) \[test:[gIou:56.8, cIoU:59.0](assets/Results_on_ReasonSeg_Dataset-7B.png)\]| 
 | [4] READ-LLaVAv1.5-7B-ReasonSeg-testset **(ours: ✅)**  | [READ-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) \[test:[gIou:58.51, cIoU:58.60](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset/blob/main/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset.png)\] \[code:[READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz)\]| 
 | [5] **READ-LLaVAv1.5-13B-ReasonSeg-testset (ours)**  | [READ-13B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset) \[test:[gIou:62.2, cIoU:62.8](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset/blob/main/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset-01.png)\] \[code:[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip)\]| 
 
@@ -78,6 +78,8 @@ Currently, we release three models are specifically trained for Reasoning segmen
 - We found that the hyperparameters: lora_r, lr, dice_loss_weight, num_points (in SESAME.py), and SAMPLE_RATES_REASONSEG (in train_sesame.sh) have a significant impact on model performance. Trying different combinations of these hyperparameters may lead to performance improvements. See also: [READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz),[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip).
 - The SESAME- model is exclusively trained with RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
 - The SESAME model is trained with multiple datasets: LLaVA VQA, RefCOCO*, R-RefCOCO*, and the proposed FP-RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
+- **[2]** represents the results fully fine-tuned after submission (which significantly surpass those in the paper). Feel free to cite either the numbers from this page or the lower numbers from our paper, as both are accurate.
+<p align="left"> <img src="assets/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft.png" width="70%"> </p>
 ## Experimental results 
 ### Results on ReasonSeg Dataset
 
