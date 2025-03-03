@@ -80,6 +80,7 @@ Currently, we release three models are specifically trained for Reasoning segmen
 - The SESAME model is trained with multiple datasets: LLaVA VQA, RefCOCO*, R-RefCOCO*, and the proposed FP-RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
 - **[2]** represents the results fully fine-tuned after submission (which significantly surpass those in the paper). Feel free to cite either the numbers from this page or the lower numbers from our paper, as both are accurate.
 <p align="left"> <img src="assets/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft.png" width="70%"> </p>
+
 ## Experimental results 
 ### Results on ReasonSeg Dataset
 
