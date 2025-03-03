@@ -19,7 +19,7 @@ catastrophic forgetting of previous skills after fine-tuning, we further assess 
 <p align="center"> <img src="assets/analysis.png" width="100%"> </p>
 
 ## News
-- [x] [2025.2.26] READ has been accepted to CVPR 2025!
+- [x] [🚨2025.2.26] READ has been accepted to CVPR 2025🎉🎉🎉! 
 - [x] [2025.1.21] The current code is somewhat messy, but we are confident that the results from the paper can be reproduced if all parameters are correctly set. If time permits, we will refactor the current code. stay tuned!
 - [x] [🚨2025.1.21] **We released [READ-LLaVA-v1.5-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset)\[code:[READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz)\], [READ-LLaVA-v1.5-13B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset)\[code:[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip)\] for ReasonSeg dataset(Trained from scratch)!**  Since our base code is mainly adapted from SESAME. If you're working within the SESAME environment, you should be able to run it smoothly by simply downloading 
 source code [READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz),[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip) here.
