@@ -72,8 +72,9 @@ Currently, we release three models are specifically trained for Reasoning segmen
 **Notes**
 - As for Reasoning segmentation, READ-LLaVA-v1.5-7B-for-ReasonSeg **[1]**, **[2]**, and **[3]** were trained based on the parameters of the [SESAME model](https://huggingface.co/tsunghanwu/SESAME) for 4-8 epochs. **[1]** corresponds to the results reported in the paper for val set, **[2]** represents the results fully fine-tuned after submission (which significantly surpass those in the paper). The results of **[3]** are now deprecated, and the paper adopts the results of **[4]** as the final for test set.
 - As for READ-LLaVA-v1.5-7B-for-ReasonSeg **[1]**, **[2]**, and **[3]**, we initialize the parameters using the released SESAME model to accelerate training, with the training dataset allocated in a 10:1:1:1:1:10 ratio. We employ LoRA for efficient fine-tuning, using \( lora\_r = 8 \), and conduct end-to-end joint training. 
-- As for READ-LLaVA-v1.5-for-ReasonSeg **[4]**, **[5]**, we trained them from scratch. For **READ-7B**, we use LLaVA 1.5-7B as the base model, set lora_r=64, lr=0.0001, dice_loss_weight=4, num_points(in SESAME.py)=30; 
-For **READ-13B**, we use LLaVA 1.5-13B as the base model. Initially, we train it on the full dataset in a 10:10:2:3:1:1 ratio for about 8 epochs, and then fine-tune it with a ratio of 3:10:2:3:1:10, using a learning rate of 0.0001 and \( lora\_r = 64 \).
+- As for READ-LLaVA-v1.5-for-ReasonSeg **[4]**, **[5]**, we trained them from scratch. 
+  - For **READ-7B**, we use LLaVA 1.5-7B as the base model, set lora_r=64, lr=0.0001, dice_loss_weight=4, num_points(in SESAME.py)=30; 
+  - For **READ-13B**, we use LLaVA 1.5-13B as the base model. Initially, we train it on the full dataset in a 10:10:2:3:1:1 ratio for about 8 epochs, and then fine-tune it with a ratio of 3:10:2:3:1:10, using a learning rate of 0.0001 and \( lora\_r = 64 \).
 - We found that the hyperparameters: lora_r, lr, dice_loss_weight, num_points (in SESAME.py), and SAMPLE_RATES_REASONSEG (in train_sesame.sh) have a significant impact on model performance. Trying different combinations of these hyperparameters may lead to performance improvements. See also: [READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz),[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip).
 - The SESAME- model is exclusively trained with RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
 - The SESAME model is trained with multiple datasets: LLaVA VQA, RefCOCO*, R-RefCOCO*, and the proposed FP-RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
@@ -99,10 +100,10 @@ See also: For details on the corresponding model parameters, please refer to [he
 
 See also: For details on the corresponding model parameters, please refer to [READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz),[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip).
 
-- when training, for **READ-7B(initialized by SESAME)**, set ./train_read.py: lora_r=8, lr=0.0003, 
+- when training, 
+  - for **READ-7B(initialized by SESAME)**, set ./train_read.py: lora_r=8, lr=0.0003, 
 model/READ.py: Lines 837-839, num_points = 30, t_pos = 0.8, t_neg = 0.2; Line 764, down_sample=2. 
-For **READ-13B(Trained from scratch)**, first, set ./train_read.py: lora_r=64, lr=0.0003, ./train_read.sh: SAMPLE_RATES_REASONSEG="10,10,2,3,1,1", model/READ.py: Lines 837-839, num_points = 10, t_pos = 0.8, t_neg = 0.2; Line 764, down_sample=1. Next, 
-fine tune the model, set lr=0.0001, num_points = 30, SAMPLE_RATES_REASONSEG="3,10,2,3,1,10".
+  - For **READ-13B(Trained from scratch)**, first, set ./train_read.py: lora_r=64, lr=0.0003, ./train_read.sh: SAMPLE_RATES_REASONSEG="10,10,2,3,1,1", model/READ.py: Lines 837-839, num_points = 10, t_pos = 0.8, t_neg = 0.2; Line 764, down_sample=1. Next, fine tune the model, set lr=0.0001, num_points = 30, SAMPLE_RATES_REASONSEG="3,10,2,3,1,10".
 
 - The `conversation_records.pickle` file is no longer necessary. To enhance the diversity of the model's responses, we retained the complex question templates from SESAME. The `conversation_records.pickle` file was originally intended to preserve the question templates used during model saving. However, **we found that using the simple, fixed templates from LISA during validation can significantly improve the model's performance.**
 ```
