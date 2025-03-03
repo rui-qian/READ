@@ -1,4 +1,4 @@
-# Reasoning to Attend: Try to Understand How \<SEG\> Token Works
+# Reasoning to Attend: Try to Understand How \<SEG\> Token Works (CVPR 2025)
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)  [![arXiv](https://img.shields.io/badge/arXiv-2311.16090-red)](https://arxiv.org/abs/2412.17741) 
 
@@ -19,9 +19,10 @@ catastrophic forgetting of previous skills after fine-tuning, we further assess 
 <p align="center"> <img src="assets/analysis.png" width="100%"> </p>
 
 ## News
+- [x] [2025.2.26] READ has been accepted to CVPR 2025!
 - [x] [2025.1.21] The current code is somewhat messy, but we are confident that the results from the paper can be reproduced if all parameters are correctly set. If time permits, we will refactor the current code. stay tuned!
-- [x] [🚨2025.1.21] **We released [READ-LLaVA-v1.5-13B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset) for ReasonSeg dataset!** Also, since our base code is mainly adapted from SESAME. If you're working within the SESAME environment, you should be able to run it smoothly by simply downloading 
-source code [READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip) there.
+- [x] [🚨2025.1.21] **We released [READ-LLaVA-v1.5-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset)\[code:[READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz)\], [READ-LLaVA-v1.5-13B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset)\[code:[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip)\] for ReasonSeg dataset(Trained from scratch)!**  Since our base code is mainly adapted from SESAME. If you're working within the SESAME environment, you should be able to run it smoothly by simply downloading 
+source code [READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz),[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip) here.
 - [x] [2025.1.4] Inference code and the [READ-LLaVA-v1.5-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) model are released. Welcome to check them out!
 - [x] [2024.12.24] [Paper](https://arxiv.org/abs/2412.17741) is released and GitHub repo is created.
 
@@ -61,13 +62,19 @@ Currently, we release three models are specifically trained for Reasoning segmen
 |----------------------------|----------------|
 | SESAME-    LLaVA-v1.5-7B  | [tsunghanwu/SESAME_minus](https://huggingface.co/tsunghanwu/SESAME_minus) |  
 | SESAME    LLaVA-v1.5-7B  | [tsunghanwu/SESAME](https://huggingface.co/tsunghanwu/SESAME) |   
-| READ-LLaVA-v1.5-7B-for-fprefcoco **(ours)**  | [rui-qian/READ-7B-fprefcoco](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
-| READ-LLaVA-v1.5-7B-for-ReasonSeg-valset **(ours)**  | [rui-qian/READ-7B-ReasonSeg-valset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) | 
-| READ-LLaVA-v1.5-7B-for-ReasonSeg-testset **(ours)**  | [rui-qian/READ-7B-ReasonSeg-testset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) | 
-| **READ-LLaVA-v1.5-13B-for-ReasonSeg-testset (ours)**  | [rui-qian/READ-13B-ReasonSeg-testset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset) | 
+| READ-LLaVA-v1.5-7B-for-fprefcoco **(ours)**  | [READ-7B-fprefcoco](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
+| [1] READ-LLaVA-v1.5-7B-for-ReasonSeg-valset **(ours)**  | [READ-7B-ReasonSeg-valset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) \[val:[gIou:59.8, cIoU:67.6](assets/Results_on_ReasonSeg_Dataset-7B.png)\]| 
+| [2] READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft **(ours)**  | [READ-7B-ReasonSeg-valset-ft](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft/tree/main) \[val:[gIou:62.33, cIoU:70.68](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft/blob/main/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft.png)\] \[code:[READ-7B-val](https://huggingface.co/datasets/rui-qian/misc/blob/main/s2p-new-SESAME_val_15points.tar.gz)\]| 
+| [3] READ-LLaVA-v1.5-7B-for-ReasonSeg-testset **(ours: ❌)**  | [READ-7B-ReasonSeg-testset](https://huggingface.co/rui-qian/deprecated-READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) \[test:[gIou:56.8, cIoU:59.0](assets/Results_on_ReasonSeg_Dataset-7B.png)\]| 
+| [4] READ-LLaVA-v1.5-7B-for-ReasonSeg-testset **(ours: ✅)**  | [READ-7B-ReasonSeg-testset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) \[test:[gIou:58.51, cIoU:58.60](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset/blob/main/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset.png)\] \[code:[READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz)\]| 
+| [5] **READ-LLaVA-v1.5-13B-for-ReasonSeg-testset (ours)**  | [READ-13B-ReasonSeg-testset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset) \[test:[gIou:62.2, cIoU:62.8](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset/blob/main/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset-01.png)\] \[code:[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip)\]| 
 
 **Notes**
-- As for Reasoning segmentation, we trained two models: READ-7B and READ-13B. For **READ-7B**, we initialize the parameters using the released SESAME model to accelerate training, with the training dataset allocated in a 10:1:1:1:1:10 ratio. We employ LoRA for efficient fine-tuning, using \( lora\_r = 8 \), and conduct end-to-end joint training. For **READ-13B**, we train it from scratch, using LLaVA 1.5-13B as the base model. Initially, we train it on the full dataset in a 10:10:2:3:1:1 ratio for about 8 epochs, and then fine-tune it with a ratio of 3:10:2:3:1:10, using a learning rate of 0.0001 and \( lora\_r = 64 \).
+- As for Reasoning segmentation, READ-LLaVA-v1.5-7B-for-ReasonSeg **[1]**, **[2]**, and **[3]** were trained based on the parameters of the [SESAME model](https://huggingface.co/tsunghanwu/SESAME) for 4-8 epochs. **[1]** corresponds to the results reported in the paper for val set, **[2]** represents the results fully fine-tuned after submission (which significantly surpass those in the paper). The results of **[3]** are now deprecated, and the paper adopts the results of **[4]** as the final for test set.
+- As for READ-LLaVA-v1.5-7B-for-ReasonSeg **[1]**, **[2]**, and **[3]**, we initialize the parameters using the released SESAME model to accelerate training, with the training dataset allocated in a 10:1:1:1:1:10 ratio. We employ LoRA for efficient fine-tuning, using \( lora\_r = 8 \), and conduct end-to-end joint training. 
+- As for READ-LLaVA-v1.5-7B-for-ReasonSeg **[4]**, **[5]**, we trained them from scratch. For **READ-7B**, we use LLaVA 1.5-7B as the base model, set lora_r=64, lr=0.0001, dice_loss_weight=4, num_points(in SESAME.py)=30; 
+For **READ-13B**, we use LLaVA 1.5-13B as the base model. Initially, we train it on the full dataset in a 10:10:2:3:1:1 ratio for about 8 epochs, and then fine-tune it with a ratio of 3:10:2:3:1:10, using a learning rate of 0.0001 and \( lora\_r = 64 \).
+- We found that the hyperparameters: lora_r, lr, dice_loss_weight, num_points (in SESAME.py), and SAMPLE_RATES_REASONSEG (in train_sesame.sh) have a significant impact on model performance. Exploring different combinations of these hyperparameters may lead to performance improvements. See also: [READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz),[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip).
 - The SESAME- model is exclusively trained with RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
 - The SESAME model is trained with multiple datasets: LLaVA VQA, RefCOCO*, R-RefCOCO*, and the proposed FP-RefCOCO* data, according to [SESAME](https://github.com/see-say-segment/sesame).
 ## Experimental results 
@@ -77,14 +84,24 @@ Currently, we release three models are specifically trained for Reasoning segmen
 
 <p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset.png" width="70%"> </p>
 
+See also: For details on the corresponding model parameters, please refer to [here](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset).
+
 **Using the simple, fixed templates from LISA**
 
 <p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset-7B.png" width="70%"> </p>
+
+See also: For details on the corresponding model parameters, please refer to [here](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset).
+
+**Using the simple, fixed templates from LISA and training from scratch for READ-7B, READ-13B**
+
+<p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset-from_scratch.png" width="70%"> </p>
 <p align="left"> <img src="assets/Results_on_ReasonSeg_Dataset-13B.png" width="70%"> </p>
 
+See also: For details on the corresponding model parameters, please refer to [READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz),[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip).
+
 - when training, for **READ-7B**, set ./train_read.py: lora_r=8, lr=0.0003, 
-model/READ.py: Line 837-839, num_points = 30, t_pos = 0.8, t_neg = 0.2; Line 764, down_sample=2. 
-For **READ-13B**, first, set ./train_read.py: lora_r=64, lr=0.0003, ./train_read.sh: SAMPLE_RATES_REASONSEG="10,10,2,3,1,1", model/READ.py: Line 837-839, num_points = 10, t_pos = 0.8, t_neg = 0.2; Line 764, down_sample=1. Next, 
+model/READ.py: Lines 837-839, num_points = 30, t_pos = 0.8, t_neg = 0.2; Line 764, down_sample=2. 
+For **READ-13B**, first, set ./train_read.py: lora_r=64, lr=0.0003, ./train_read.sh: SAMPLE_RATES_REASONSEG="10,10,2,3,1,1", model/READ.py: Lines 837-839, num_points = 10, t_pos = 0.8, t_neg = 0.2; Line 764, down_sample=1. Next, 
 fine tune the model, set lr=0.0001, num_points = 30, SAMPLE_RATES_REASONSEG="3,10,2,3,1,10".
 
 - The `conversation_records.pickle` file is no longer necessary. To enhance the diversity of the model's responses, we retained the complex question templates from SESAME. The `conversation_records.pickle` file was originally intended to preserve the question templates used during model saving. However, **we found that using the simple, fixed templates from LISA during validation can significantly improve the model's performance.**
@@ -103,7 +120,9 @@ fine tune the model, set lr=0.0001, num_points = 30, SAMPLE_RATES_REASONSEG="3,1
     LONG_ANSWER_TEMPLATE = ["Sure, the segmentation result is [SEG]."]
 ```
 
-- Considering that the ReasonSeg validation set only contains 200 images, there may be high variance on the validation set (see [issues](https://github.com/dvlab-research/LISA/issues/82)). For the READ-13B model, we only report results on the test set (779 images). Since the test set is larger than the validation set, the results are relatively more stable, and thereby, we believe this is sufficient to demonstrate the model's effectiveness.
+- Considering that the ReasonSeg validation set only contains 200 images, there may be high variance on the validation set (see [issues](https://github.com/dvlab-research/LISA/issues/82)). For the READ-13B model, we only report results on the test set (779 images). **We are confident that the results of READ-13B are reproducible 
+(see [issues](https://github.com/MaverickRen/PixelLM/issues/17); code:[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip))** Since the test set is larger than the validation set, the results are relatively more stable, and thereby, we believe this is sufficient to demonstrate the model's effectiveness.
+
 
 ### Results on RefCOCO Dataset
 <p align="left"> <img src="assets/Results_on_RefCOC_(+g)_Dataset.png" width="70%"> </p>
@@ -226,8 +245,8 @@ If you use our work or our implementation in this repo, or find them helpful, pl
 @inproceedings{qian2024reasoning,
   title={Reasoning to Attend: Try to Understand How< SEG> Token Works},
   author={Qian, Rui and Yin, Xin and Dou, Dejing},
-  journal={arXiv preprint arXiv:2412.17741},
-  year={2024}
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2025}
 }
 ```
 ## Contact
