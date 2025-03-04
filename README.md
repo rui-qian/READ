@@ -234,7 +234,7 @@ To qualitatively analyze the \<SEG\> token, we visualize the similarity maps at 
 Here are the relevant experimental results attached [Link](https://huggingface.co/datasets/rui-qian/misc/blob/main/Analysis.tar.gz).
 ```
 tar -xvf Analysis.tar.gz
-cd Analysis
+cd Analysis # pip install django==2.1.5
 ./run.sh    # We provide a Django-based dashboard for data visualization. User: llm  Password: 1314
 ```
 <p align="center"> <img src="assets/AnalysisDjango.png" width="100%"> </p>
