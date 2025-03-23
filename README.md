@@ -220,14 +220,17 @@ As mentioned in [SESAME](https://github.com/see-say-segment/sesame), inference i
 
 ## Inference (Demo)
 
-To chat with [READ-LLaVA-v1.5-7B](READ-LLaVA-v1.5-7B-for-fprefcoco), you can run ours scripts: **[./demo.sh](./demo.sh)**.
+To chat with [READ-LLaVA-v1.5-13B-for-ReasonSeg-testset](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset), you can run ours scripts: **[./demo.sh](./demo.sh)**.
 ```
 export CUDA_VISIBLE_DEVICES=0
 python demo.py \
-    --pretrained_model_path="../READ-LLaVA-v1.5-7B-for-fprefcoco" \
-    --vision_tower="../dataset/clip-vit-large-patch14-336" \
-    --model_max_length=2048
+        --pretrained_model_path="./READ-LLaVA-v1.5-13B-for-ReasonSeg-testset" \
+        --vision_tower="../dataset_sesame/clip-vit-large-patch14-336" \
+        --model_max_length=2048
 ```
+<p align="center"> <img src="assets/demo.png" width="100%"> </p>
+
+Sometimes, you need to explicitly invoke the `Segment` instruction to prompt the model for segmentation.
 
 ## Appendix
 To qualitatively analyze the \<SEG\> token, we visualize the similarity maps at different stages of the forward pass in SESAME. 
