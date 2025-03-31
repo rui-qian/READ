@@ -4,8 +4,8 @@
 
 2. Visual Question Answering dataset (**Required for training models for referring segmentation model**): [LLaVA-Instruct-150k](https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K/blob/main/llava_instruct_150k.json)
 
-1. Semantic segmentation datasets (**Required for training models for reasoning segmentation tasks**): [ADE20K](http://data.csail.mit.edu/places/ADEchallenge/ADEChallengeData2016.zip), [COCO-Stuff](http://calvin.inf.ed.ac.uk/wp-content/uploads/data/cocostuffdataset/stuffthingmaps_trainval2017.zip), [PACO-LVIS](https://github.com/facebookresearch/paco/tree/main#dataset-setup), [PASCAL-Part](https://github.com/facebookresearch/VLPart/tree/main/datasets#pascal-part), [COCO Images](http://images.cocodataset.org/zips/train2017.zip)
-
+1. Semantic segmentation datasets (**Required for training models for semantic segmentation tasks**): [ADE20K](http://data.csail.mit.edu/places/ADEchallenge/ADEChallengeData2016.zip), [COCO-Stuff](http://calvin.inf.ed.ac.uk/wp-content/uploads/data/cocostuffdataset/stuffthingmaps_trainval2017.zip), [PACO-LVIS](https://github.com/facebookresearch/paco/tree/main#dataset-setup), [PASCAL-Part](https://github.com/facebookresearch/VLPart/tree/main/datasets#pascal-part), [COCO Images](http://images.cocodataset.org/zips/train2017.zip)
+, [mapillary](https://www.mapillary.com/dataset/vistas)
     Note: For COCO-Stuff, we use the annotation file stuffthingmaps_trainval2017.zip. We only use the PACO-LVIS part in PACO. COCO Images should be put into the `dataset/coco/` directory.
 
 5. Augmented Reasoning segmentation dataset (with false-premise queries): [FP-Aug ReasonSeg](https://drive.google.com/file/d/11WNg1KaV2mk7gTdJRa2aahGqfj4luTDw/view?usp=sharing)
@@ -18,6 +18,12 @@ SESAME
 │   ├── ade20k
 │   │   ├── annotations
 │   │   └── images
+│   ├── mapillary
+│   │   ├── training
+│   │   ├── validation
+│   │   ├── testing
+│   │   ├── config_v1.2.json
+│   │   └── config_v2.0.json
 │   ├── coco
 │   │   └── train2017
 │   │       ├── 000000000009.jpg
