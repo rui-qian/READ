@@ -19,6 +19,7 @@ catastrophic forgetting of previous skills after fine-tuning, we further assess 
 <p align="center"> <img src="assets/analysis.png" width="100%"> </p>
 
 ## News
+- [x] [🚨2025.10.4]  We recently released a high-performance framework and recommend using it for training: [UGround](https://github.com/rui-qian/UGround). 
 - [x] [🚨2025.8.27]  We are working on a systematic framework, which will be released soon. Stay tuned!
 - [x] [2025.5.2] We upload our Poster and Thumbnail images on the [Poster-PNG](https://cvpr.thecvf.com/media/PosterPDFs/CVPR%202025/32873.png?t=1746173344.9632757), see also [Poster-PDF](https://huggingface.co/datasets/rui-qian/misc/blob/main/cvpr2025-poster.pdf).
 - [x] [🚨2025.2.26] READ has been accepted to CVPR 2025🎉🎉🎉! 
