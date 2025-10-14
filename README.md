@@ -29,6 +29,15 @@ source code [READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/RE
 - [x] [2025.1.4] Inference code and the [READ-LLaVA-v1.5-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) model are released. Welcome to check them out!
 - [x] [2024.12.24] [Paper](https://arxiv.org/abs/2412.17741) is released and GitHub repo is created.
 
+**UGround: Towards Unified Visual Grounding with Unrolled Transformers [[Paper](https://arxiv.org/abs/2510.03853)]** <br />
+[Rui Qian](https://scholar.google.com.hk/citations?user=z3sAW3oAAAAJ&hl=zh-CN), 
+[Xin Yin](https://scholar.google.com.hk/citations?hl=zh-CN&user=v3OOQQkAAAAJ), 
+[Chuanhang Deng](https://scholar.google.com/citations?hl=zh-CN&user=xUxVwu0AAAAJ),
+[Zhiyuan Peng](https://scholar.google.com.hk/citations?hl=zh-CN&user=kfiyUgIAAAAJ),
+[Jian Xiong](https://scholar.google.com.hk/citations?hl=zh-CN&user=ePOXfkAAAAAJ),
+[Wei Zhai](https://scholar.google.com.hk/citations?hl=zh-CN&user=seIo-acAAAAJ),
+[Dejing Dou†](https://scholar.google.com.hk/citations?hl=zh-CN&user=qBHsQ04AAAAJ)<br />
+
 ## Installation Guide
 
 ### System Requirements
@@ -61,16 +70,24 @@ conda activate ml
 
 Currently, we release three models are specifically trained for Reasoning segmentation tasks, (FP-)referring segmentation tasks. Below are key notes of these models. Links to [FP-RefCOCO* Datasets](https://drive.google.com/file/d/1mA3kcY3QiAZz1Zr89MCKYd7e3LBIwUzl/view?usp=sharing) are available. Visit [SESAME dataset page](./dataset/README.md) for more details.
 
-| Model Name | HG-ckpt URL | 
-|----------------------------|----------------|
-| SESAME-    LLaVA-v1.5-7B  | [tsunghanwu/SESAME_minus](https://huggingface.co/tsunghanwu/SESAME_minus) |  
-| SESAME    LLaVA-v1.5-7B  | [tsunghanwu/SESAME](https://huggingface.co/tsunghanwu/SESAME) |   
-| READ-LLaVAv1.5-7B-fprefcoco **(ours)**  | [READ-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
-| [1] READ-LLaVAv1.5-7B-ReasonSeg-valset **(ours)**  | [READ-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset) \[val:[gIou:59.8, cIoU:67.6](assets/Results_on_ReasonSeg_Dataset-7B.png)\]| 
-| [2] READ-LLaVAv1.5-7B-ReasonSeg-valset-ft **(ours)**  | [READ-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft/tree/main) \[val:[gIou:62.33, cIoU:70.68](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft/blob/main/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft.png)\] \[code:[READ-7B-val](https://huggingface.co/datasets/rui-qian/misc/blob/main/s2p-new-SESAME_val_15points.tar.gz)\]| 
-| [3] READ-LLaVAv1.5-7B-ReasonSeg-testset **(ours: ❌)**  | [READ-7B](https://huggingface.co/rui-qian/deprecated-READ-LLaVA-v1.5-7B-for-ReasonSeg-testset/tree/main) \[test:[gIou:56.8, cIoU:59.0](assets/Results_on_ReasonSeg_Dataset-7B.png)\]| 
-| [4] READ-LLaVAv1.5-7B-ReasonSeg-testset **(ours: ✅)**  | [READ-7B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) \[test:[gIou:58.51, cIoU:58.60](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset/blob/main/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset.png)\] \[code:[READ-7B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz)\]| 
-| [5] **READ-LLaVAv1.5-13B-ReasonSeg-testset (ours)**  | [READ-13B](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset) \[test:[gIou:62.2, cIoU:62.8](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset/blob/main/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset-01.png)\] \[code:[READ-13B](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip)\]| 
+| Model Name |gIoU cIoU|Snapshot| HG-ckpt URL | 
+|----------------------------|----------------|----------------|----------------|
+Results on ReasonSeg
+| [[1] READ-LLaVAv1.5-7B-ReasonSeg-valset **(ours)**](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset)  |59.8 67.6|[archive](assets/Results_on_ReasonSeg_Dataset-7B.png)|[weights](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset)
+| [[2] READ-LLaVAv1.5-7B-ReasonSeg-valset-ft **(ours)**](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft/tree/main)|62.33 70.68|[archive](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft/blob/main/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft.png)| [weights](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-valset-ft/tree/main) \[[code](https://huggingface.co/datasets/rui-qian/misc/blob/main/s2p-new-SESAME_val_15points.tar.gz)\]| 
+| [[3] READ-LLaVAv1.5-7B-ReasonSeg-testset **(ours: ❌)**](https://huggingface.co/rui-qian/deprecated-READ-LLaVA-v1.5-7B-for-ReasonSeg-testset/tree/main)  |56.8 59.0|[archive](assets/Results_on_ReasonSeg_Dataset-7B.png)|[weights](https://huggingface.co/rui-qian/deprecated-READ-LLaVA-v1.5-7B-for-ReasonSeg-testset/tree/main)
+| [[4] READ-LLaVAv1.5-7B-ReasonSeg-testset **(ours: ✅)**](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) |58.51 58.60|[archive](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset/blob/main/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset.png)|[weights](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-ReasonSeg-testset) \[[code](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-7B_scratch_test.tar.gz)\]| 
+| [[5] **READ-LLaVAv1.5-13B-ReasonSeg-testset (ours)**](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset)|62.23 62.75|[archive](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset/blob/main/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset-01.png)|[weights](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-13B-for-ReasonSeg-testset) \[[code](https://huggingface.co/datasets/rui-qian/misc/blob/main/READ-13B.zip)\]| 
+Results on ReferSeg
+| [READ-LLaVAv1.5-7B-refcoco **(ours)**](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco)  |79.05 78.12|[archive](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco/blob/main/refcoco_val.png)|[weights](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
+| [READ-LLaVAv1.5-7B-refcoco+ **(ours)**](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco)  |71.20 68.40|[archive](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco/blob/main/refcoco%2B_val.png)|[weights](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
+| [READ-LLaVAv1.5-7B-refcocog **(ours)**](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco)  |71.74 70.07|[archive](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco/blob/main/refcocog_val.png)|[weights](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
+Results on FP-refcoco
+| [READ-LLaVAv1.5-7B-fprefcoco **(ours)**](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco)  |n.a. 61.50|[archive](https://huggingface.co/datasets/rui-qian/FP-refcoco/blob/main/fprefcoco.png)|[weights](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
+| [READ-LLaVAv1.5-7B-fprefcoco+ **(ours)**](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco)  |n.a. 54.54|[archive](https://huggingface.co/datasets/rui-qian/FP-refcoco/blob/main/fprefcoco%2B.png)|[weights](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
+| [READ-LLaVAv1.5-7B-fprefcocog **(ours)**](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco)  |n.a. 56.12|[archive](https://huggingface.co/datasets/rui-qian/FP-refcoco/blob/main/fprefcocog.png)|[weights](https://huggingface.co/rui-qian/READ-LLaVA-v1.5-7B-for-fprefcoco) | 
+| [SESAME-    LLaVA-v1.5-7B](https://huggingface.co/tsunghanwu/SESAME_minus)  | | |[weights](https://huggingface.co/tsunghanwu/SESAME_minus) |  
+| [SESAME    LLaVA-v1.5-7B](https://huggingface.co/tsunghanwu/SESAME)  | ||[weights](https://huggingface.co/tsunghanwu/SESAME) |   
 
 **Notes**
 - As for Reasoning segmentation, READ-LLaVA-v1.5-7B-for-ReasonSeg **[1]**, **[2]**, and **[3]** were trained based on the parameters of the [SESAME model](https://huggingface.co/tsunghanwu/SESAME) for 4-8 epochs. **[1]** corresponds to the results reported in the paper for val set, **[2]** represents the results fully fine-tuned after submission (which significantly surpass those in the paper). The results of **[3]** are now deprecated, and the paper adopts the results of **[4]** as the final for test set.
