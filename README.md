@@ -278,4 +278,4 @@ If you use our work or our implementation in this repo, or find them helpful, pl
 }
 ```
 ## Contact
-If you have any questions, feel free to reach out at qianruii@126.com, xyin@zju.edu.cn, and dejingdou@gmail.com.
+If you have any questions, feel free to reach out at qiianruii@gmail.com, xyin@zju.edu.cn, and dejingdou@gmail.com.
